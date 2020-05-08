@@ -1,6 +1,6 @@
 {
   "name": "nexus-plugin-subscriptions",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/nexus-plugin-subscriptions.esm.js",
@@ -20,7 +20,6 @@
     "prepack": "yarn -s build"
   },
   "prettier": {
-    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },
@@ -34,11 +33,18 @@
   },
   "devDependencies": {
     "@types/jest": "25.2.1",
+    "@types/ws": "7.2.4",
     "doctoc": "1.4.0",
     "jest": "26.0.1",
     "jest-watch-typeahead": "0.6.0",
     "nexus": "0.21.0",
     "ts-jest": "25.5.0",
     "typescript": "3.8.3"
+  },
+  "peerDependencies": {
+    "graphql": "^14.6.0"
+  },
+  "dependencies": {
+    "subscriptions-transport-ws": "0.9.16"
   }
 }

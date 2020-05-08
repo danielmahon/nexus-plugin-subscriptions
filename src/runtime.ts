@@ -1,18 +1,13 @@
-import { RuntimePlugin } from 'nexus/plugin'
+import { RuntimePlugin } from 'nexus/plugin';
+import { schemaPlugin } from './schema';
+import { Settings } from './settings';
 
-export const plugin: RuntimePlugin = () => project => {
+export const plugin: RuntimePlugin<Settings, 'required'> = (settings) => (
+  project
+) => {
   return {
-    context: {
-      create: _req => {
-        return {
-          'nexus-plugin-subscriptions': 'hello world!'
-        }
-      },
-      typeGen: {
-        fields: {
-          'nexus-plugin-subscriptions': 'string'
-        }
-      }
-    }
-  }
-}
+    schema: {
+      plugins: [schemaPlugin(settings, project)],
+    },
+  };
+};
