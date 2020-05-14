@@ -4,28 +4,27 @@ import { Settings } from './settings';
 import { execute, subscribe } from 'graphql';
 import { RuntimeLens } from 'nexus/plugin';
 
-export const schemaPlugin = (settings: Settings, project: RuntimeLens) => {
+export const schemaPlugin = (
+  { ws, ...settings }: Settings,
+  project: RuntimeLens
+) => {
   return plugin({
     name: 'Nexus Schema Subscription Plugin',
     onAfterBuild: (schema) => {
       if (settings.onAfterBuild) {
         settings.onAfterBuild(schema);
       } else {
-        const wss = SubscriptionServer.create(
+        const wss = new SubscriptionServer(
           {
             schema,
             execute,
             subscribe,
-            onConnect: settings.onConnect,
-            onDisconnect: settings.onDisconnect,
-            onOperation: settings.onOperation,
+            ...settings,
           },
-          { server: settings.server, path: settings.path }
+          { ...ws }
         );
         wss.server.on('listening', function () {
-          project.log.info(
-            `Subscription server is listening on ${settings.path}`
-          );
+          project.log.info(`Subscription server is listening on ${ws.path}`);
         });
         wss.server.on('close', function () {
           project.log.info(`Subscription server closed.`);

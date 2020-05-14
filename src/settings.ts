@@ -2,15 +2,11 @@ import { GraphQLSchema } from 'graphql';
 import { ServerOptions } from 'subscriptions-transport-ws';
 import WebSocket from 'ws';
 
-export type Settings = {
+export type Settings = ServerOptions & {
   onAfterBuild?: (schema: GraphQLSchema) => void;
-  server: WebSocket.ServerOptions['server'];
-  path?: WebSocket.ServerOptions['path'];
-  onConnect?: ServerOptions['onConnect'];
-  onDisconnect?: ServerOptions['onDisconnect'];
-  onOperation?: ServerOptions['onOperation'];
+  ws: WebSocket.ServerOptions;
 };
 
 export const initialSettings = {
-  path: '/graphql',
+  path: '/subscriptions',
 };
