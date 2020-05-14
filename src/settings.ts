@@ -8,5 +8,5 @@ export type Settings = ServerOptions & {
 };
 
 export const initialSettings = {
-  path: '/subscriptions',
+  ws: { path: '/subscriptions' },
 };
