@@ -18,8 +18,9 @@ export const schemaPlugin = (settings: Settings, project: RuntimeLens) => {
             subscribe,
             onConnect: settings.onConnect,
             onDisconnect: settings.onDisconnect,
+            onOperation: settings.onOperation,
           },
-          { server: settings.httpServer, path: settings.path }
+          { server: settings.server, path: settings.path }
         );
         wss.server.on('listening', function () {
           project.log.info(
