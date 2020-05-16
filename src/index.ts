@@ -11,9 +11,5 @@ export const subscriptions: PluginEntrypoint<Settings, 'required'> = (
       module: require.resolve('./runtime'),
       export: 'plugin',
     },
-    worktime: {
-      module: require.resolve('./worktime'),
-      export: 'plugin',
-    },
   };
 };

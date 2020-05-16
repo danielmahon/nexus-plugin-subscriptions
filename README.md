@@ -1,10 +1,9 @@
-# nexus-plugin-subscriptions <!-- omit in toc -->
+# [WIP!] nexus-plugin-subscriptions <!-- omit in toc -->
 
 **Contents**
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Installation](#installation)
 - [Example Usage](#example-usage)
@@ -18,7 +17,6 @@
 
 ## Installation
 
-
 ```
 npm install nexus-plugin-subscriptions
 ```
@@ -27,7 +25,7 @@ npm install nexus-plugin-subscriptions
 
 ## Example Usage
 
-TODO
+This is a work in progress and most likely a temporary solution until subscriptions are natively supported by nexus.
 
 <br>
 
