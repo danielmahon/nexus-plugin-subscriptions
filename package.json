@@ -1,6 +1,6 @@
 {
   "name": "nexus-plugin-subscriptions",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/nexus-plugin-subscriptions.esm.js",
