@@ -21,11 +21,15 @@
 npm install nexus-plugin-subscriptions
 ```
 
+NOTE: You will probably need to use my forked version of `nexus` which allows the passing of a shared HTTP server: https://github.com/danielmahon/nexus/tree/support-custom-http-server
+
 <br>
 
 ## Example Usage
 
 This is a work in progress and most likely a temporary solution until subscriptions are natively supported by nexus.
+
+See https://github.com/graphql-nexus/nexus/issues/447#issuecomment-630882390 for usage example
 
 <br>
 
