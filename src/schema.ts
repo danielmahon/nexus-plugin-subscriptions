@@ -11,25 +11,21 @@ export const schemaPlugin = (
   return plugin({
     name: 'Nexus Schema Subscription Plugin',
     onAfterBuild: (schema) => {
-      if (settings.onAfterBuild) {
-        settings.onAfterBuild(schema);
-      } else {
-        const wss = new SubscriptionServer(
-          {
-            schema,
-            execute,
-            subscribe,
-            ...settings,
-          },
-          { ...ws }
-        );
-        wss.server.on('listening', function () {
-          project.log.info(`Subscription server is listening on ${ws.path}`);
-        });
-        wss.server.on('close', function () {
-          project.log.info(`Subscription server closed.`);
-        });
-      }
+      const wss = new SubscriptionServer(
+        {
+          schema,
+          execute,
+          subscribe,
+          ...settings,
+        },
+        { ...ws }
+      );
+      wss.server.on('listening', function () {
+        project.log.info(`Subscription server is listening on ${ws.path}`);
+      });
+      wss.server.on('close', function () {
+        project.log.info(`Subscription server closed.`);
+      });
     },
   });
 };

@@ -1,18 +1,18 @@
 {
   "name": "nexus-plugin-subscriptions",
-  "version": "0.0.8",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "module": "dist/nexus-plugin-subscriptions.esm.js",
-  "description": "A Nexus framework plugin",
   "files": [
     "dist"
   ],
-  "types": "src/app.d.ts",
+  "description": "A Nexus framework plugin",
   "scripts": {
     "dev": "tsc --watch",
     "build:doc": "doctoc README.md --notitle",
-    "build:ts": "tsc",
+    "build:ts": "tsc --declaration",
     "build": "yarn -s build:ts && yarn -s build:doc",
     "test": "jest",
     "publish:stable": "dripip stable",
@@ -33,20 +33,21 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "25.2.1",
-    "@types/ws": "7.2.4",
+    "@types/jest": "26.0.7",
+    "@types/ws": "7.2.6",
     "doctoc": "1.4.0",
     "dripip": "0.9.0",
-    "jest": "26.0.1",
+    "jest": "26.2.1",
     "jest-watch-typeahead": "0.6.0",
-    "nexus": "0.21.0",
-    "ts-jest": "25.5.1",
-    "typescript": "3.8.3"
+    "nexus": "0.25.0",
+    "ts-jest": "26.1.4",
+    "typescript": "3.9.7"
   },
   "peerDependencies": {
     "graphql": "^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.1 || ^14.0.2"
   },
   "dependencies": {
-    "subscriptions-transport-ws": "0.9.16"
+    "lodash": "4.17.19",
+    "subscriptions-transport-ws": "0.9.17"
   }
 }
